@@ -10,6 +10,8 @@ const mongoose       = require("mongoose");
 mongoose.Promise=global.Promise;
 
 var index = require('./routes/index');
+const main = require('./routes/main');
+const private = require('./routes/private');
 //var users = require('./routes/users');
 
 const app            = express();
@@ -54,6 +56,8 @@ app.use(session({
 // Routes
 //app.use('/', index);
 app.use('/', index); //se refiere a index.js
+app.use('/main',main);
+app.use('/private',private);
 //app.use('/register',index)
 //app.use('/users', users); //se refieren a users.js
 
