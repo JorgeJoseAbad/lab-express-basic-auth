@@ -12,34 +12,41 @@
 <body>
   <div class="container">
   <div class="row">
-    
+
       <% if (error) { %>
         <div class="panel-heading">
           <h3 class="text-center">
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Oops:
-          <small>Username or Password invalid</small>
+          <small><%=errorMessage%></small>
           </h3>
         </div>
       <%}%>
-    
+
+      <% if (  errorMessage  == "The username doesn't exist"){ %>
+        <div class="panel-heading">
+          <p><a href="/login">Do you want atempt it again</a></p>
+          <p><a href="/register">Register a new user??</a></p>
+        </div>
+      <%}%>
+
       <div class="col-md-offset-5 col-md-3">
           <form method="POST" action="<%=action%>" class="form-login">
           <h4><%=header%></h4>
-          
+
             <input name="username" type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
             </br>
-            
+
             <input name="password" type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
             </br>
-          
+
           <div class="wrapper">
           <span class="group-btn">
-            
+
               <button class="btn btn-primary btn-md"><%=buttonText%><i class="fa fa-sign-in"></i></button>
           </span>
           </div>
         </form>
-      
+
       </div>
   </div>
 </div>

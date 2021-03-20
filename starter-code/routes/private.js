@@ -12,7 +12,10 @@ private.use((req, res, next) => {
 });
 
 private.get('/', function(req, res, next) {
-  res.render('private', { title: 'Private' });
+  res.render('private', {
+    title: 'Private',
+    user: req.session.currentUser
+   });
 });
 
 module.exports=private;

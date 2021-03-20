@@ -7,8 +7,9 @@ const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
 main.use((req, res, next) => {
-  if (req.session.currentUser) { next(); }
-  else { res.redirect("/login"); }
+  if (req.session.currentUser) {
+    next(); //pasa al siguiente, a main.get
+  } else { res.redirect("/login"); }
 });
 
 main.get('/', function(req, res, next) {

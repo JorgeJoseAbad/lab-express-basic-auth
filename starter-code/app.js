@@ -7,9 +7,10 @@ const logger         = require("morgan");
 const cookieParser   = require("cookie-parser");
 const bodyParser     = require("body-parser");
 const mongoose       = require("mongoose");
-mongoose.Promise=global.Promise;
 
-var index = require('./routes/index');
+
+
+const index = require('./routes/index');
 const main = require('./routes/main');
 const private = require('./routes/private');
 //var users = require('./routes/users');
@@ -23,7 +24,11 @@ const app            = express();
 
 // Mongoose configuration
 
-mongoose.connect("mongodb://localhost/basic-auth");
+mongoose.connect("mongodb://localhost/basic-auth",{
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+ });
+mongoose.Promise = global.Promise;
 
 // Middlewares configuration
 
